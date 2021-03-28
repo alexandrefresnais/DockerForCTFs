@@ -12,4 +12,4 @@ if [ ! $? -eq 0 ]; then
     exit 1
 fi
 
-docker exec -it ctf /bin/bash
+docker exec -it ctf /bin/zsh

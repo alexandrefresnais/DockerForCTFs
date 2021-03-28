@@ -10,7 +10,7 @@ if [ ! $? -eq 0 ]; then
     fi
 
     docker run \
-            --rm -v $PWD:/pwd \
+            --rm -v $PWD:/home/pwd \
             --cap-add=SYS_PTRACE \
             --security-opt seccomp=unconfined \
             -w /home \

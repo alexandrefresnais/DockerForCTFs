@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# If not shared directory
+if [ ! -e shared ]; then
+    mkdir shared
+fi
+
 # if container not running
 docker ps | grep "ctf:ubuntu"
 if [ ! $? -eq 0 ]; then
@@ -10,7 +15,7 @@ if [ ! $? -eq 0 ]; then
     fi
 
     docker run \
-            --rm -v $PWD:/home/pwd \
+            --rm -v $PWD/shared:/home/shared \
             --cap-add=SYS_PTRACE \
             --security-opt seccomp=unconfined \
             -w /home \
